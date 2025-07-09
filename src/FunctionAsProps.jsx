@@ -1,13 +1,9 @@
 function Student({name,hello}){
-    
     return(
         <>
-        <hr/>
         <h1>Student Name: {name}</h1>
         <h1>Change is : {typeof name}</h1>
         <h1>Passing function as Props: {hello}</h1>
-
-        
         </>
     )
 }

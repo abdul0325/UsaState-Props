@@ -1,16 +1,12 @@
 import { useState } from "react";
-import ToggleElseIf from "./Header";
-import Test from "./Test";
-import Student from "./First";
+import ToggleElseIf from "./ObjectsAsProps";
+import Student from "./FunctionAsProps";
+import FirstTask from "./PracticeTask";
 import DefaultProps,{ PassJsx } from  "./DefaultProps";
+import ArrayAsPops from "./ArrayAsProps";
 
 function App() {
-  function sayHello() {
-    return "hello";
-  }
-
-  let collegeArray = ["a", "b", "c", "d"];
-
+  
   let userObj1 = {
     name: "Abdul",
     age: "29",
@@ -27,18 +23,31 @@ function App() {
     email: "ahmad@test.com",
   };
 
+  let collegeArray = ["a", "b", "c", "d"];
+
+  function sayHello() {
+    return "hello";
+  }
+
   const [count, setCount] = useState(0);
   const [student, setStudent] = useState("null");
 
   return (
     <>
-       <h1>Displaying Data:</h1>
+       <h1 style={{color:"blue"}}>Practice == Props & Defualt Props , Passing jsx , Passsing Objects & Arrays as Props, Else-if & Switch , Toggle:</h1>
+        <hr/>
+        
+        <h1 style={{color:"green"}}>Objects as Props :</h1>
       <ToggleElseIf user={userObj1} />
+        <hr/>
       <ToggleElseIf user={userObj2} />
+        <hr/>
       <ToggleElseIf user={userObj3} />
-
-      <Test college={collegeArray} />
-
+      <hr/>
+      <ArrayAsPops college={collegeArray} />
+      <hr/>
+      
+      <h1 style={{color:"green"}}>Funtion & Toggle :</h1>
       <button
         onClick={() => {
           if (student == "null") {
@@ -54,9 +63,12 @@ function App() {
       {student && (
         <Student hello={sayHello()} change={setStudent} name={student} />
       )}
+      <hr/>
 
-      {/* <ToggleElseIf name="Abdul Rehman" Age="2" email="abdul@mail.com" /> //this is simple props line ========> IMPORTANT NOTE: COMMENT THIS LINE */}
+      {/* <h1>Simple Props passing : </h1>
+      <ToggleElseIf name="Abdul Rehman" Age="2" email="abdul@mail.com" /> //this is simple props line ========> IMPORTANT NOTE: COMMENT THIS LINE */}
 
+      <h1 style={{color:"green"}}>Switch and Else if Count : </h1>
       <h1>{count}</h1>
 
       <button onClick={() => setCount(count + 1)}>Increase</button>
@@ -81,13 +93,19 @@ function App() {
         count == 9 ? <h1>Zain</h1> :
         <h1>no found</h1>
       }
+      <hr/>
+      <h1 style={{color:"green"}}>Passing Defualt Props : </h1>
       <DefaultProps name="Abdul" />
       <DefaultProps name="Rehman" />
       <DefaultProps  />
-      <h1>Passing jsx complete: </h1>
+      <hr/>
+      <h1 style={{color:"green"}}>Passing jsx complete & Styles as Props: </h1>
       <PassJsx color="purple"><h1 style={{color:"red"}}>hello</h1></PassJsx>
       <PassJsx><h1 style={{color:"green"}}>hello</h1></PassJsx>
-      <PassJsx><h1 style={{color:"purple"}}>hello</h1></PassJsx>
+      <PassJsx><h1 style={{color:"grey"}}>hello</h1></PassJsx>
+      <hr/>
+      <h1 style={{color:"green"}}>First Task : </h1>
+      <FirstTask/>
     </>
   );
 }
